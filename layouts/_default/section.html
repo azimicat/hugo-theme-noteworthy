@@ -5,15 +5,13 @@
     Archives
   </h1>
   <div>
-     <!-- Group all the post pages from the same year -->
+    <!-- Group all the post pages from the same year -->
       {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
       {{ range ($pages.GroupByDate "2006") }}
           <h3>{{ .Key }}</h3> <!-- Display the year -->
 
-          <ul class="archives-list"> 
-            
+          <ul class="archives-list">
               {{ range (.Pages) }}
-             
                   <li class="archives-list-item">
                     <span class="archives-list-item-date">{{ .PublishDate.Format "Jan 2" }}</span>
                     <span>
@@ -24,7 +22,5 @@
           </ul>
       {{ end }}
   </div>
-
   <div class="page-footer"></div>
-
 {{ end }}
